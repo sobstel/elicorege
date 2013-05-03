@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>{{ name }} Composer Repository</title>
+    <style type="text/css">
+    {% include 'styles.css' %}
+    </style>
+</head>
+<body>
+
+    <div id="doc" class="yui-t7">
+        <div id="hd">
+            <h1>{{ name }}</h1>
+            {% if description %}
+                <p>{{ description }}</p>
+            {% endif %}
+        </div>
+        <div id="bd">
+            <div class="yui-g">
+                <h2>Usage</h2>
+                <p>Adding the repository to <em>composer.json</em>:</p>
+                <pre><code>{
+    "repositories": [
+        {
+            "packagist": false
+        },
+        {
+            "type": "composer",
+            "url": "{{ url }}"
+        }
+    ]
+}</code></pre>
+                <h2>Table of contents</h2>
+                <ul>
+                {% for i in grouped_packages %}
+                    <li><a href="#{{ i.id }}">{{ i.meta.name }}</a> {{ i.meta.description }}</li>
+                {% endfor %}
+                </ul>
+
+                <h2>Packages details</h2>
+                {% for i in grouped_packages %}
+                    <h3 id="{{ i.id }}">{{ i.meta.name }} <em class="desc">{{ i.meta.description }}</em></h3>
+                    <p>
+                        {% if i.meta.homepage %}
+                            <b>Homepage:</b> <a href="{{ i.meta.homepage }}">{{ i.meta.homepage }}</a>
+                        {% endif %}
+                        {% if i.meta.license %}
+                            <b>License:</b> {{ i.meta.license|join(', ') }}
+                        {% endif %}
+                        {% if i.meta.authors %}
+                            <b>Authors: </b>
+                                    {% for author in i.meta.authors %}
+                                        {%- if author.homepage -%}
+                                            <a href="{{ author.homepage }}">{{ author.name }}</a>
+                                        {%- elseif author.email -%}
+                                            <a href="mailto:{{ author.email }}">{{ author.name }}</a>
+                                        {%- else -%}
+                                            {{ author.name }}
+                                        {%- endif -%}
+                                        {%- if not loop.last -%}, {% endif -%}
+                                    {% endfor %}
+                        {% endif %}
+                    </p>
+                    {% for package in i.packages %}
+                        <table>
+                            <tr>
+                                <th>Version</th>
+                                <td>{{ package.prettyVersion }} ({{ package.version }})</td>
+                            </tr>
+                            <tr>
+                                <th>Repo</th>
+                                <td>{{ package.sourceUrl }} ({{ package.sourceReference }})</td>
+                            </tr>
+                            <tr>
+                                <th>Release date</th>
+                                <td>{{ package.releaseDate|date('Y-m-d H:i:s') }}</td>
+                            </tr>
+                            {%- if package.requires -%}
+                            <tr>
+                                <th>Dependencies</th>
+                                <td>{%- for name, require in package.requires -%}{{ name }} ({{ require.prettyConstraint }}){%- if not loop.last -%}, {% endif -%}{%- endfor -%}</td>
+                            </tr>
+                            {%- endif -%}
+                        </table>
+                    {% endfor %}
+                {% endfor %}
+            </div>
+        </div>
+        <div id="ft">
+            <p><small>Last updated:  {{ "now"|date(constant('\DateTime::ISO8601')) }}</small></p>
+        </div>
+    </div>
+
+</body>
+</html>

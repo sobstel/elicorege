@@ -1,0 +1,23 @@
+{
+    "name": "sobstel/elicorege",
+    "description": "Extremely lightweight (PHP) Composer repository generator",
+    "homepage": "https://github.com/sobstel/elicorege",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Przemek Sobstel",
+            "email": "przemek@sobstel.org"
+        }
+    ],
+    "bin": ["bin/elicorege"],
+    "require": {
+        "php": ">=5.3.2",
+        "composer/composer": "1.0.*@dev",
+        "twig/twig": "~1.7"
+    },
+    "autoload": {
+        "psr-0": { "Elicorege": "src/" }
+    },
+    "minimum-stability": "beta"
+}

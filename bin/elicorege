@@ -1,0 +1,18 @@
+#!/usr/bin/env php
+<?php
+# SMELL: hardcoded dependency on composer structure
+require __DIR__.'/../vendor/autoload.php';
+
+$opts = getopt(null, array('config-file:', 'output-dir:'));
+
+try {
+    $generator = new Elicorege\Generator($opts);
+    $generator->run();
+    echo PHP_EOL;
+    exit(0);
+} catch (Exception $e) {
+    echo $e->getMessage();
+    echo PHP_EOL;
+    exit(1);
+}
+
