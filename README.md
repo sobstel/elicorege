@@ -9,6 +9,32 @@ Features
 * Generates both packages.json and index.html info page.
 * Uses local repositories to fetch data (extremely fast).
 
+Installation
+------------
+
+Download composer.
+
+    wget http://getcomposer.org/composer.phar
+
+Create `composer.json` file.
+
+    {
+        "repositories": [
+            {
+                "type": "vcs",
+                "url": "https://github.com/sobstel/elicorege"
+            }
+        ],
+        "require": {
+            "sobstel/elicorege": "*@dev"
+        },
+        "minimum-stability": "dev"
+    }
+
+Install packages.
+
+    php composer.phar install
+
 Usage
 -----
 
