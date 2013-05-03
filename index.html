@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Elicorege by sobstel</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Elicorege</h1>
+        <p>Extremely lightweight (PHP) Composer repository generator.</p>
+
+        <p class="view"><a href="https://github.com/sobstel/elicorege">View the Project on GitHub <small>sobstel/elicorege</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/sobstel/elicorege/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/sobstel/elicorege/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/sobstel/elicorege">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>elicorege</h1>
+
+<p><strong>E</strong>xtremely <strong>li</strong>ghtweight (PHP) <strong>co</strong>mposer <strong>re</strong>pository <strong>ge</strong>nerator.</p>
+
+<h2>Features</h2>
+
+<ul>
+<li>Generates both packages.json and index.html info page.</li>
+<li>Uses local repositories to fetch data (extremely fast).</li>
+</ul><h2>Installation</h2>
+
+<p>Download composer.</p>
+
+<pre><code>wget http://getcomposer.org/composer.phar
+</code></pre>
+
+<p>Create <code>composer.json</code> file.</p>
+
+<pre><code>{
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/sobstel/elicorege"
+        }
+    ],
+    "require": {
+        "sobstel/elicorege": "*@dev"
+    },
+    "minimum-stability": "dev"
+}
+</code></pre>
+
+<p>Install packages.</p>
+
+<pre><code>php composer.phar install
+</code></pre>
+
+<h2>Usage</h2>
+
+<pre><code>./bin/elicorege --config-file=config.json --output-dir=public
+</code></pre>
+
+<h2>config.json</h2>
+
+<pre><code>{
+    "name": "Example",
+    "homepage": "http://user:password@git.example.com",
+
+    "base_local_path": "/var/git",
+    "base_clone_path": "git@git.example.com",
+
+    "repos": {
+        "symfony/classloader": { "relative_path": "mirrors/ClassLoader.git", "references": ["v2.0.16"] },
+        "twig": { "relative_path": "mirrors/Twig.git", "references": ["v1.12.3", "v1.12.2"] },
+        "lsdcache": { "relative_path": "lsdcache.git", "references": ["master"] }
+    }
+}
+</code></pre>
+
+<h2>Limitations</h2>
+
+<ul>
+<li>All repos must have local copies (eg. <code>git@github.com:sobstel/elicorege.git</code> not allowed). It's intentional though as it has advantage of not being vulnerable on external parties downtimes.</li>
+</ul>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/sobstel">sobstel</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
