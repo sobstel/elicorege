@@ -1,7 +1,7 @@
-licorege
-========
+elicorege
+=========
 
-Extremely lightweight (PHP) Composer repository generator.
+**E**xtremely **l**ightweight (PHP) **co**mposer **re**pository **ge**nerator.
 
 Features
 --------
@@ -34,4 +34,4 @@ config.json
 Limitations
 -----------
 
-* All repos must have local copies (eg. @git@github.com:sobstel/elicorege.git@ not allowed). It's intentional though as it has advantage of not being vulnerable on external parties downtimes.
+* All repos must have local copies (eg. `git@github.com:sobstel/elicorege.git` not allowed). It's intentional though as it has advantage of not being vulnerable on external parties downtimes.
