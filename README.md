@@ -1,7 +1,7 @@
 elicorege
 =========
 
-**E**xtremely **l**ightweight (PHP) **co**mposer **re**pository **ge**nerator.
+**E**xtremely **li**ghtweight (PHP) **co**mposer **re**pository **ge**nerator.
 
 Features
 --------
