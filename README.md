@@ -6,7 +6,7 @@ elicorege
 Features
 --------
 
-* Generates both packages.json and index.html info page.
+* Generates both [packages.json](http://sobstel.org/elicorege/packages.json) and [index.html](http://sobstel.org/elicorege/example.html) info page.
 * Uses local repositories to fetch data (extremely fast).
 
 Installation
