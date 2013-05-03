@@ -1,7 +1,7 @@
 #!/usr/bin/env php
 <?php
 # SMELL: hardcoded dependency on composer structure
-require __DIR__.'/../vendor/autoload.php';
+require __DIR__.'/../../../autoload.php';
 
 $opts = getopt(null, array('config-file:', 'output-dir:'));
 
