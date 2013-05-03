@@ -38,7 +38,7 @@ Install packages.
 Usage
 -----
 
-    ./bin/elicorege --config-file=config.json --output-dir=public
+    ./vendor/bin/elicorege --config-file=config.json --output-dir=public
 
 config.json
 -----------
